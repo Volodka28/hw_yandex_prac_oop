@@ -39,7 +39,7 @@ class InfoMessage:
         self.calories = calories
 
     def get_message(self) -> str:
-        """Возвращает сообщение о тренировке"""
+        """Возвращает сообщение о тренировке."""
 
         return (f'Тип тренировки: {self.training_type}; '
                 f'Длительность: {self.duration:.3f} ч.; '
