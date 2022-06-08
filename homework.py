@@ -300,23 +300,19 @@ def read_package(workout_type: str, data: List[int]) -> Training:
     try:
         return workout_types[workout_type](*data)
     except KeyError:
-        raise KeyError(f'{workout_type} - некорректный вид тренировки.')
-    except TypeError:
-        raise TypeError(f'{data} - число аргументов'
-                        'не соответствует требуемому')
+        raise ValueError(f'{workout_type} - неправильный тип тренировки.')
 
 
 def main(training: Training) -> None:
     """Главная функция."""
 
     info = training.show_training_info()
-    message = info.get_message()
-    print(message)
+    print(info.get_message())
 
 
 if __name__ == '__main__':
     packages = [
-        ('SWM', [720, 1, 80, 25, 40, 5]),
+        ('SWM', [720, 1, 80, 25, 40]),
         ('RUN', [15000, 1, 75]),
         ('WLK', [9000, 1, 75, 180]),
     ]
